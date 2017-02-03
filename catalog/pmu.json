@@ -1,0 +1,216 @@
+{
+  "RUN":
+      [
+      {
+	      "Name"  : "PM_RUN_CYC",
+	      "Description"  : "Run Cycles."
+	  },
+	  {
+	      "Name"  : "PM_RUN_INST_CMPL",
+	      "Description"  : "Run Instructions."
+	  }
+      ],
+  "GRP1":
+      [
+      {
+	      "Name"  : "PM_1PLUS_PPC_CMPL",
+	      "Description"  : "One or more instructions completed."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL",
+	      "Description"  : "Completion stall."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_THRD",
+	      "Description"  : "Completion stall due to thread conflict. Group ready to complete but it was another thread's turn."
+	  },
+	  {
+	      "Name"  : "PM_GCT_NOSLOT_CYC",
+	      "Description"  : "Pipeline empty (No itags assigned no GCT slots used)."
+	  },
+	  {
+	      "Name"  : "PM_NTCG_ALL_FIN",
+	      "Description"  : "Cycles after all instructions have finished to group completed."
+	  }
+      ],
+  "GRP2":
+      [
+	  {
+	      "Name"  : "PM_CMPLU_STALL",
+	      "Description"  : "Completion stall."
+	  },
+      {
+	      "Name"  : "PM_CMPLU_STALL_BRU_CRU",
+	      "Description": "Completion stall due to Instruction Fetch Unit."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_BRU",
+	      "Description"  : "Completion stall due to a Branch Unit."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_FXU",
+	      "Description"  : "Completion stall due to Fixed Point Unit."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_FXLONG",
+	      "Description"  : "Completion stall due to a long latency fixed point instruction."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_SCALAR_LONG",
+	      "Description"  : "Completion stall due to VSU scalar long latency instruction."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_SCALAR",
+	      "Description"  : "Completion stall due to VSU scalar instruction."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_VSU",
+	      "Description"  : "Completion stall due to VSU instruction."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_VECTOR_LONG",
+	      "Description"  : "Completion stall due to VSU vector long instruction."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_VECTOR",
+	      "Description"  : "Completion stall due to VSU vector instruction."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_LSU",
+	      "Description"  : "Completion stall by LSU instruction."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_NTCG_FLUSH",
+	      "Description"  : "Completion stall due to ntcg flush."
+	  }
+      ],
+  "GRP3":
+      [
+	  {
+	      "Name"  : "PM_CMPLU_STALL_LSU",
+	      "Description"  : "Completion stall by LSU instruction."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_REJ_LMQ_FULL",
+	      "Description"  : "Completion stall due to LSU reject LMQ full."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_STORE",
+	      "Description"  : "Completion stall by stores this includes store agen finishes in pipe LS0/LS1 and store data finishes in LS2/LS3."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_DCACHE_MISS",
+	      "Description"  : "Completion stall by Dcache miss."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_DMISS_L2L3_CONFLICT",
+	      "Description"  : "Completion stall due to cache miss resolving in core's L2/L3 with a conflict."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_DMISS_L2L3",
+	      "Description"  : "Completion stall by Dcache miss which resolved in L2/L3."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_DMISS_LMEM",
+	      "Description"  : "Completion stall due to cache miss that resolves in local memory."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_DMISS_L21_L31",
+	      "Description"  : "Completion stall by Dcache miss which resolved on chip (excluding local L2/L3)."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_DMISS_L3MISS",
+	      "Description"  : "Completion stall due to cache miss resolving missed the L3."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_DMISS_REMOTE",
+	      "Description"  : "Completion stall by Dcache miss which resolved from remote chip (cache or memory)."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_ERAT_MISS",
+	      "Description"  : "Completion stall due to LSU reject ERAT miss."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_REJECT_LHS",
+	      "Description"  : "Completion stall due to reject (load hit store)."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_REJECT",
+	      "Description"  : "Completion stall due to LSU reject."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_LOAD_FINISH",
+	      "Description"  : "Completion stall due to a Load finish."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_ST_FWD",
+	      "Description"  : "Completion stall due to store forward."
+	  }
+      ],
+   "GRP4":
+      [
+	  {
+	      "Name"  : "PM_CMPLU_STALL_THRD",
+	      "Description"  : "Completion stalled due to thread conflict. Group ready to complete but it was another thread's turn."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_HWSYNC",
+	      "Description"  : "Completion stall due to hwsync."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_LWSYNC",
+	      "Description"  : "Completion stall due to isync/lwsync."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_MEM_ECC_DELAY",
+	      "Description"  : "Completion stall due to mem ECC delay."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_FLUSH",
+	      "Description"  : "Completion stall due to flush by own thread."
+	  },
+	  {
+	      "Name"  : "PM_CMPLU_STALL_COQ_FULL",
+	      "Description"  : "Completion stall due to Cast Out Queue full."
+	  }
+      ],
+  "GRP5":
+      [
+	  {
+	      "Name"  : "PM_GCT_NOSLOT_CYC",
+	      "Description"  : "Pipeline empty (No itags assigned no Global Completion Table slots used)."
+	  },
+	  {
+	      "Name"  : "PM_GCT_NOSLOT_IC_MISS",
+	      "Description"  : "Global Completion Table empty for this thread due to instruction cache miss."
+	  },
+	  {
+	      "Name"  : "PM_GCT_NOSLOT_IC_L3MISS",
+	      "Description"  : "Global Completion Table empty for this thread due to instruction cache L3 miss."
+	  },
+	  {
+	      "Name"  : "PM_GCT_NOSLOT_DISP_HELD_ISSQ",
+	      "Description"  : "Global Completion Table empty for this thread due to dispatch hold on this thread due to issue queue full."
+	  },
+	  {
+	      "Name"  : "PM_GCT_NOSLOT_BR_MPRED",
+	      "Description"  : "Global Completion Table empty for this thread due to branch mispred."
+	  },
+	  {
+	      "Name"  : "PM_GCT_NOSLOT_DISP_HELD_OTHER",
+	      "Description"  : "Global Completion Table empty for this thread due to dispatch hold on this thread due to sync."
+	  },
+	  {
+	      "Name"  : "PM_GCT_NOSLOT_BR_MPRED_ICMISS",
+	      "Description"  : "Global Completion Table empty for this thread due to instruction cache Miss and branch mispred."
+	  },
+	  {
+	      "Name"  : "PM_GCT_NOSLOT_DISP_HELD_SRQ",
+	      "Description"  : "Global Completion Table empty for this thread due to dispatch hold on this thread due to SRQ full."
+	  },
+	  {
+	      "Name"  : "PM_GCT_NOSLOT_DISP_HELD_MAP",
+	      "Description"  : "Global Completion Table empty for this thread due to dispatch hold on this thread due to Mapper full."
+	  }
+      ]
+}

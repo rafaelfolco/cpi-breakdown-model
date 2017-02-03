@@ -1,0 +1,308 @@
+{
+  "RUN": [
+  {
+    "Name" : "RUN_CYC_CPI",
+    "Description" : "Run cycles.",
+    "Formula" : "PM_RUN_CYC"
+  },
+  {
+    "Name"  : "RUN_CYC_INST_CPI",
+    "Description"  : "Run Cycles per Instructions.",
+    "Formula"  : "PM_RUN_CYC / PM_RUN_INST_CMPL"
+  } ],
+  "GRP1": [
+  {
+    "Name" : "STALL_CPI",
+    "Description" : "Completion stall cycles.",
+    "Formula" : "PM_CMPLU_STALL"
+  },
+  {
+    "Name" : "GRP_CMPL_CPI",
+    "Description" : "Cycles in which a group of instructions completed.",
+    "Formula" : "PM_1PLUS_PPC_CMPL"
+  },
+  {
+    "Name" : "NTCG_ALL_FIN_CPI",
+    "Description" : "Cycles after all instructions have finished to group completed.",
+    "Formula" : "PM_NTCG_ALL_FIN"
+  },
+  {
+    "Name" : "STALL_THRD_CPI",
+    "Description" : "Completion Stalled due to thread conflict. Group ready to complete but it was another thread's turn.",
+    "Formula" : "PM_CMPLU_STALL_THRD"
+  },
+  {
+    "Name" : "GCT_EMPTY_CPI",
+    "Description" : "Pipeline empty (No itags assigned, no GCT slots used).",
+    "Formula" : "PM_GCT_NOSLOT_CYC"
+  },
+  {
+    "Name" : "OTHER_CPI",
+    "Description" :  "Other cycles.",
+    "Formula" : "PM_RUN_CYC - PM_CMPLU_STALL - PM_GCT_NOSLOT_CYC - PM_NTCG_ALL_FIN - PM_CMPLU_STALL_THRD - PM_1PLUS_PPC_CMPL"
+  } ],
+  "GRP2": [
+  {
+    "Name" : "STALL_CRU_CPI",
+    "Description" : "Completion stall due to Condition Register",
+    "Formula" : "PM_CMPLU_STALL_BRU_CRU - PM_CMPLU_STALL_BRU"
+  },
+  {
+    "Name" : "STALL_BRU_CRU_CPI",
+    "Description" : "Completion stall due to a Branch Unit or Condition Register",
+    "Formula" : "PM_CMPLU_STALL_BRU_CRU"
+  },
+  {
+    "Name" : "STALL_BRU_CPI",
+    "Description" : "Completion stall due to a Branch Unit.",
+    "Formula" : "PM_CMPLU_STALL_BRU"
+  },
+  {
+    "Name" : "STALL_FXU_CPI",
+    "Description" : "Completion stall due to Fixed Point Unit.",
+    "Formula" : "PM_CMPLU_STALL_FXU"
+  },
+  {
+    "Name" : "STALL_FXLONG_CPI",
+    "Description" : "Completion stall due to a long latency Fixed Point instruction.",
+    "Formula" : "PM_CMPLU_STALL_FXLONG"
+  },
+  {
+    "Name" : "STALL_FXU_OTHER_CPI",
+    "Description" : "Other stalls due to Fixed Ponit Unit.",
+    "Formula" : "PM_CMPLU_STALL_FXU - PM_CMPLU_STALL_FXLONG"
+  },
+  {
+    "Name" : "VSU_STALL_CPI",
+    "Description" : "Completion stall due to VSU instruction.",
+    "Formula" : "PM_CMPLU_STALL_VSU"
+  },
+  {
+    "Name" : "VSU_STALL_VECTOR_CPI",
+    "Description" : "Completion stall due to VSU vector instruction.",
+    "Formula" : "PM_CMPLU_STALL_VECTOR"
+  },
+  {
+    "Name" : "VSU_STALL_VECTOR_LONG_CPI",
+    "Description" : "Completion stall due to VSU vector long instruction",
+    "Formula" : "PM_CMPLU_STALL_VECTOR_LONG"
+  },
+  {
+    "Name" : "VSU_STALL_VECTOR_OTHER_CPI",
+    "Description" : "Other completion stall due to VSU vector instruction.",
+    "Formula" : "PM_CMPLU_STALL_VECTOR - PM_CMPLU_STALL_VECTOR_LONG"
+  },
+  {
+    "Name" : "VSU_STALL_SCALAR_CPI",
+    "Description" : "Completion stall due to VSU scalar instruction.",
+    "Formula" : "PM_CMPLU_STALL_SCALAR"
+  },
+  {
+    "Name" : "VSU_STALL_SCALAR_LONG_CPI",
+    "Description" : "Completion stall due to VSU scalar long latency instruction.",
+    "Formula" : "PM_CMPLU_STALL_SCALAR_LONG"
+  },
+  {
+    "Name" : "VSU_STALL_SCALAR_OTHER_CPI",
+    "Description" : "Other completion stall due to VSU scalar instruction.",
+    "Formula" : "PM_CMPLU_STALL_SCALAR - PM_CMPLU_STALL_SCALAR_LONG"
+  },
+  {
+    "Name" : "VSU_STALL_OTHER_CPI",
+    "Description" : "Other stall due to Vector Scalar Unit.",
+    "Formula" : "PM_CMPLU_STALL_VSU - PM_CMPLU_STALL_VECTOR - PM_CMPLU_STALL_SCALAR"
+  },
+  {
+    "Name" : "STALL_NTCG_FLUSH_CPI",
+    "Description" : "Completion stall due to ntcg flush.",
+    "Formula" : "PM_CMPLU_STALL_NTCG_FLUSH"
+  },
+  {
+    "Name" : "STALL_OTHER_CPI",
+    "Description" : "Other stall cycles.",
+    "Formula" : "PM_CMPLU_STALL - PM_CMPLU_STALL_BRU_CRU - PM_CMPLU_STALL_FXU - PM_CMPLU_STALL_VSU - PM_CMPLU_STALL_LSU - PM_CMPLU_STALL_NTCG_FLUSH"
+  } ],
+  "GRP3": [
+  {
+    "Name" : "LSU_STALL_CPI",
+    "Description" : "Completion stall by LSU instruction.",
+    "Formula" : "PM_CMPLU_STALL_LSU"
+  },
+  {
+    "Name" : "LSU_STALL_DMISS_CPI",
+    "Description" : "Completion stall by Dcache miss.",
+    "Formula" : "PM_CMPLU_STALL_DCACHE_MISS"
+  },
+  {
+    "Name" : "LSU_STALL_DMISS_L2L3_CPI",
+    "Description" : "Completion stall by Dcache miss which resolved in L2/L3.",
+    "Formula" : "PM_CMPLU_STALL_DMISS_L2L3"
+  },
+  {
+    "Name" : "LSU_STALL_DMISS_L2L3_CONFLICT_CPI",
+    "Description" : "Completion stall due to cache miss resolving in core's L2/L3 with a conflict.",
+    "Formula" : "PM_CMPLU_STALL_DMISS_L2L3_CONFLICT"
+  },
+  {
+    "Name" : "LSU_STALL_DMISS_L2L3_NOCONFLICT_CPI",
+    "Description" : "Completion stall due to cache miss resolving in core's L2/L3 with no conflict.",
+    "Formula" : "PM_CMPLU_STALL_DMISS_L2L3 - PM_CMPLU_STALL_DMISS_L2L3_CONFLICT"
+  },
+  {
+    "Name" : "LSU_STALL_DMISS_L3MISS_CPI",
+    "Description" : "Completion stall due to cache miss resolving missed the L3.",
+    "Formula" : "PM_CMPLU_STALL_DMISS_L3MISS"
+  },
+  {
+    "Name" : "LSU_STALL_DMISS_LMEM_CPI",
+    "Description" : "Completion stall due to cache miss that resolves in local memory.",
+    "Formula" : "PM_CMPLU_STALL_DMISS_LMEM"
+  },
+  {
+    "Name" : "LSU_STALL_DMISS_L21L31_CPI",
+    "Description" : "Completion stall by Dcache miss which resolved on chip (excluding local L2/L3).",
+    "Formula" : "PM_CMPLU_STALL_DMISS_L21_L31"
+  },
+  {
+    "Name" : "LSU_STALL_DMISS_REMOTE_CPI",
+    "Description" : "Completion stall by Dcache miss which resolved from remote chip (cache or memory)",
+    "Formula" : "PM_CMPLU_STALL_DMISS_REMOTE"
+  },
+  {
+    "Name" : "LSU_STALL_DMISS_OTHER_CPI",
+    "Description" : "Completion stall by other Dcache miss.",
+    "Formula" : "PM_CMPLU_STALL_DMISS_L3MISS - PM_CMPLU_STALL_DMISS_LMEM - PM_CMPLU_STALL_DMISS_L21_L31 - PM_CMPLU_STALL_DMISS_REMOTE"
+  },
+  {
+    "Name" : "LSU_STALL_REJECT_CPI",
+    "Description" : "Completion stall due to LSU reject.",
+    "Formula" : "PM_CMPLU_STALL_REJECT"
+  },
+  {
+    "Name" : "LSU_STALL_REJECT_LHS_CPI",
+    "Description" : "Completion stall due to reject (load hit store).",
+    "Formula" : "PM_CMPLU_STALL_REJECT_LHS"
+  },
+  {
+    "Name" : "LSU_STALL_ERAT_MISS_CPI",
+    "Description" : "Completion stall due to LSU reject ERAT miss.",
+    "Formula" : "PM_CMPLU_STALL_ERAT_MISS"
+  },
+  {
+    "Name" : "LSU_STALL_REJECT_LMQ_FULL_CPI",
+    "Description" : "Completion stall due to LSU reject ERAT miss.",
+    "Formula" : "PM_CMPLU_STALL_REJ_LMQ_FULL"
+  },
+  {
+    "Name" : "LSU_STALL_REJECT_OTHER_CPI",
+    "Description" : "Other completion stall due to LSU reject.",
+    "Formula" : "PM_CMPLU_STALL_REJECT - PM_CMPLU_STALL_REJECT_LHS - PM_CMPLU_STALL_ERAT_MISS - PM_CMPLU_STALL_REJ_LMQ_FULL"
+  },
+  {
+    "Name" : "LSU_STALL_STORE_CPI",
+    "Description" : "Completion stall by stores.",
+    "Formula" : "PM_CMPLU_STALL_STORE"
+  },
+  {
+    "Name" : "LSU_STALL_LOAD_FINISH_CPI",
+    "Description" : "Completion stall due to a Load finish.",
+    "Formula" : "PM_CMPLU_STALL_LOAD_FINISH"
+  },
+  {
+    "Name" : "LSU_STALL_ST_FWD_CPI",
+    "Description" : "Completion stall due to store forward.",
+    "Formula" : "PM_CMPLU_STALL_ST_FWD"
+  },
+  {
+    "Name" : "LSU_STALL_OTHER_CPI",
+    "Description" : "Other stall due to Load Store Unit.",
+    "Formula" : "PM_CMPLU_STALL_LSU - PM_CMPLU_STALL_DCACHE_MISS - PM_CMPLU_STALL_REJECT - PM_CMPLU_STALL_STORE - PM_CMPLU_STALL_LOAD_FINISH - PM_CMPLU_STALL_ST_FWD"
+  } ],
+ "GRP4": [
+  {
+    "Name" : "STALL_LWSYNC_CPI",
+    "Description" : "Completion stall due to isync/lwsync.",
+    "Formula" : "PM_CMPLU_STALL_LWSYNC"
+  },
+  {
+    "Name" : "STALL_HWSYNC_CPI",
+    "Description" : "Completion stall due to hwsync.",
+    "Formula" : "PM_CMPLU_STALL_HWSYNC"
+  },
+  {
+    "Name" : "STALL_MEM_ECC_DELAY_CPI",
+    "Description" : "Completion stall due to mem ECC delay.",
+    "Formula" : "PM_CMPLU_STALL_MEM_ECC_DELAY"
+  },
+  {
+    "Name" : "STALL_FLUSH_CPI",
+    "Description" : "Completion stall due to flush by own thread.",
+    "Formula" : "PM_CMPLU_STALL_FLUSH"
+  },
+  {
+    "Name" : "STALL_COQ_FULL_CPI",
+    "Description" : "Completion stall due to COQ full.",
+    "Formula" : "PM_CMPLU_STALL_COQ_FULL"
+  },
+  {
+    "Name" : "STALL_OTHER_THRD_CPI",
+    "Description" : "Other completion stall due to Thread conflict.",
+    "Formula" : "PM_CMPLU_STALL_THRD - PM_CMPLU_STALL_LWSYNC - PM_CMPLU_STALL_HWSYNC - PM_CMPLU_STALL_MEM_ECC_DELAY - PM_CMPLU_STALL_FLUSH - PM_CMPLU_STALL_COQ_FULL"
+  } ],
+ "GRP5": [
+  {
+    "Name" : "GCT_EMPTY_IC_MISS_CPI",
+    "Description" : "Gct empty for this thread due to instruction cache miss.",
+    "Formula" : "PM_GCT_NOSLOT_IC_MISS"
+  },
+  {
+    "Name" : "GCT_EMPTY_IC_L3MISS_CPI",
+    "Description" : "Gct empty for this thread due to instruction cache L3 miss.",
+    "Formula" : "PM_GCT_NOSLOT_IC_L3MISS"
+  },
+  {
+    "Name" : "GCT_EMPTY_IC_L2L3_CPI",
+    "Description" : "Other GCT empty due to instruction cache miss.",
+    "Formula" : "PM_GCT_NOSLOT_IC_MISS - PM_GCT_NOSLOT_IC_L3MISS"
+  },
+  {
+    "Name" : "GCT_EMPTY_BR_MPRED_CPI",
+    "Description" : "Gct empty for this thread due to branch misprediction.",
+    "Formula" : "PM_GCT_NOSLOT_BR_MPRED"
+  },
+  {
+    "Name" : "GCT_EMPTY_BR_MPRED_ICMISS_CPI",
+    "Description" : "Gct empty for this thread due to Icache Miss and branch misprediction.",
+    "Formula" : "PM_GCT_NOSLOT_BR_MPRED_ICMISS"
+  },
+  {
+    "Name" : "GCT_EMPTY_DISP_HELD_CPI",
+    "Description" : "Gct empty for this thread due to dispatch hold on this thread.",
+    "Formula" : "PM_GCT_NOSLOT_DISP_HELD_MAP + PM_GCT_NOSLOT_DISP_HELD_SRQ + PM_GCT_NOSLOT_DISP_HELD_ISSQ + PM_GCT_NOSLOT_DISP_HELD_OTHER"
+  },
+  {
+    "Name" : "GCT_EMPTY_DISP_HELD_MAP_CPI",
+    "Description" : "Gct empty for this thread due to dispatch hold on this thread due to Mapper full.",
+    "Formula" : "PM_GCT_NOSLOT_DISP_HELD_MAP"
+  },
+  {
+    "Name" : "GCT_EMPTY_DISP_HELD_SRQ_CPI",
+    "Description" : "Gct empty for this thread due to dispatch hold on this thread due to SRQ full.",
+    "Formula" : "PM_GCT_NOSLOT_DISP_HELD_SRQ"
+  },
+  {
+    "Name" : "GCT_EMPTY_DISP_HELD_ISSQ_CPI",
+    "Description" : "Gct empty for this thread due to dispatch hold on this thread due to Issue q full.",
+    "Formula" : "PM_GCT_NOSLOT_DISP_HELD_ISSQ"
+  },
+  {
+    "Name" : "GCT_EMPTY_DISP_HELD_OTHER_CPI",
+    "Description" : "Other Gct empty for this thread due to dispatch hold on this thread.",
+    "Formula" : "PM_GCT_NOSLOT_DISP_HELD_OTHER"
+  },
+  {
+    "Name" : "GCT_EMPTY_OTHER_CPI",
+    "Description" : "Other pipeline empty (No itags assigned, no GCT slots used). ",
+    "Formula" : "PM_GCT_NOSLOT_CYC - PM_GCT_NOSLOT_IC_MISS - PM_GCT_NOSLOT_BR_MPRED - PM_GCT_NOSLOT_BR_MPRED_ICMISS - (PM_GCT_NOSLOT_DISP_HELD_MAP + PM_GCT_NOSLOT_DISP_HELD_SRQ + PM_GCT_NOSLOT_DISP_HELD_ISSQ + PM_GCT_NOSLOT_DISP_HELD_OTHER)"
+  } ]
+}
